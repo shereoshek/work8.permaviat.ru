@@ -15,6 +15,9 @@
 	if($CheckPassword == false)
 		exit;
 	
+	//хеширование пароля
+	$password = password_hash($password, PASSWORD_DEFAULT);
+
 	// ищем пользователя
 	$query_user = $mysqli->query("SELECT * FROM `users` WHERE `login`='".$login."'");
 	$id = -1;
