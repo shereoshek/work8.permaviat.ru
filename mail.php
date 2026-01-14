@@ -17,7 +17,7 @@
         $code= rand(100000, 999999);
         $_SESSION['code']=$code;
         //$theme = ""; //"Код для подтверждения входа"
-        mail($_SESSION['mail'], "Вход" , "Код ".$code);
+        mail($_SESSION['mail'], "dagdhagdhj" , "Код ".$code);
         //unset($_SESSION['mail']);
     }
 ?>

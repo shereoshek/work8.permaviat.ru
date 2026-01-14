@@ -12,5 +12,6 @@
     }else{
         unset($_SESSION['code']);
         unset($_SESSION['preuser']);
+        header("Location: login.php");
     }
 ?>
