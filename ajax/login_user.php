@@ -1,4 +1,5 @@
 <?php
+
 	session_start();
 	include("../settings/connect_datebase.php");
 	
@@ -16,9 +17,10 @@
 	}
 	
 	if($id != -1) {
-		$_SESSION['user'] = $id;
+		$_SESSION['preuser'] = $id;
+		$_SESSION['mail'] = $login;
 
-		// сесиия
+		// сесcия
 
 		$Ip = $_SERVER["REMOTE_ADDR"];
 		$DateStart = date("Y-m-d H:i:s");
