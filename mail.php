@@ -14,7 +14,7 @@
  	}else if (!isset($_SESSION['mail'])) {
         header("Location: login.php");
  	}else{
-        $code= rand(100000, 999999);
+		 $code= rand(100000, 999999);
         $_SESSION['code']=$code;
         //$theme = ""; //"Код для подтверждения входа"
         mail($_SESSION['mail'], "dagdhagdhj" , "Код ".$code);

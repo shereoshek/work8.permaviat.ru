@@ -1,19 +1,22 @@
 <?php
 	session_start();
 	include("./settings/connect_datebase.php");
-	
+	include("./settings/session.php");
+
 	if (isset($_SESSION['user'])) {
 		if($_SESSION['user'] != -1) {
-			$user_query = $mysqli->query("SELECT * FROM `users` WHERE `id` = ".$_SESSION['user']); // проверяем
+			$user_query = $mysqli->query("SELECT `roll`, `token` FROM `users` WHERE `id` = ".$_SESSION['user']); // проверяем
 			while($user_read = $user_query->fetch_row()) {
-				if($user_read[3] == 0) header("Location: index.php");
+				if($user_read[0] == 0) header("Location: index.php");
+				if($_SESSION['token']!=$user_read[1]){
+					session_destroy();
+					header("Location: login.php");
+				}
 			}
 		} else header("Location: login.php");
 	} else {
 		header("Location: login.php");
-		echo "Пользователя не существует";
 	}
-	include("./settings/session.php");
 ?>
 <!DOCTYPE HTML>
 <html>
